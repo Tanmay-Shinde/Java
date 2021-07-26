@@ -1,63 +1,33 @@
-package Loops.Loops_While;
-import java.io.*;
+package Functions;
+import java.util.*;
 public class Palindrome
 {
-    public static void main()throws IOException
+    void palin(String x)
     {
-        InputStreamReader read = new InputStreamReader(System.in);
-        BufferedReader in = new BufferedReader(read);
-
-        System.out.println("Enter the number");
-        int n=Integer.parseInt(in.readLine());
-        int t=n;
-        int rev=0;
-
-        while(t!=0)
+        int l=x.length();
+        String t="";
+        char ch;
+        for(int i=0;i<l;i++)
         {
-            int a=t%10;
-            rev = rev*10+a;
-            t=t/10;
+            ch=x.charAt(i);
+            t=ch+t;
         }
-        if(n==rev)
+        if(t.equals(x)==true)
         {
-            System.out.println(n+" is a Palindrome number");
+            System.out.println("The word is Palindrome");
         }
         else
         {
-            System.out.println(n+" is not a Palindrome number");
+            System.out.println("The word is not Palindrome");
         }
     }
-
-    public static void main2()throws IOException
+    void main()
     {
-        InputStreamReader read = new InputStreamReader(System.in);
-        BufferedReader in = new BufferedReader(read);
-
-        System.out.println("Enter the number");
-        int n=Integer.parseInt(in.readLine());
-        int t=n;
-        int rev=0;
-
-        while(t!=0)
-        {
-            int a=t%10;
-            rev = rev*10+a;
-            t=t/10;
-        }
-        if(n==rev)
-        {
-            if(n<-10 || n>10)
-            {
-                System.out.println(n+" is a Palindrome number");
-            }
-            else
-            {
-                System.out.println(n+" is not a Palindrome number");
-            }
-        }
-        else
-        {
-            System.out.println(n+" is not a Palindrome number");
-        }
+        Scanner sc=new Scanner(System.in);
+        String s;
+        System.out.println("Enter a word");
+        s=sc.next();
+        s=s.toUpperCase();
+        palin(s);
     }
 }
