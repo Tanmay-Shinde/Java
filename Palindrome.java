@@ -1,33 +1,28 @@
-package Arrays;
+package Strings;
 import java.util.*;
 public class Palindrome
 {
     static void main()
     {
-        Scanner sc=new Scanner(System.in);
-        int a[]=new int[10];//Declaration of array
+        Scanner sc= new Scanner(System.in);
+        String s,a="";
+        int l;
+        char ch;
+        boolean k=false;
 
-        System.out.println("Enter the numbers");
-        for(int i=0;i<10;i++)
+        System.out.println("Enter a word");
+        s=sc.next();
+        l=s.length();
+
+        for(int i=0;i<l;i++)
         {
-            a[i]=sc.nextInt();
+            ch = s.charAt(i);            
+            a=ch+a;
+             
         }
-
-        for(int i=0;i<10;i++)
-        {
-            int t=a[i];
-            int rev=0;
-
-            while(t!=0)
-            {
-                int r=t%10;
-                rev = rev*10+r;
-                t=t/10;
-            }
-            if(a[i]==rev)
-            {
-                System.out.println(a[i]);
-            }
-        }
+        if(a.equalsIgnoreCase(s))
+            System.out.println(s+" is a palindrome word");
+        else
+            System.out.println(s+" is not a palindrome word");
     }
 }
