@@ -1,28 +1,63 @@
-package Strings;
-import java.util.*;
+package Loops.Loops_While;
+import java.io.*;
 public class Palindrome
 {
-    static void main()
+    public static void main()throws IOException
     {
-        Scanner sc= new Scanner(System.in);
-        String s,a="";
-        int l;
-        char ch;
-        boolean k=false;
+        InputStreamReader read = new InputStreamReader(System.in);
+        BufferedReader in = new BufferedReader(read);
 
-        System.out.println("Enter a word");
-        s=sc.next();
-        l=s.length();
+        System.out.println("Enter the number");
+        int n=Integer.parseInt(in.readLine());
+        int t=n;
+        int rev=0;
 
-        for(int i=0;i<l;i++)
+        while(t!=0)
         {
-            ch = s.charAt(i);            
-            a=ch+a;
-             
+            int a=t%10;
+            rev = rev*10+a;
+            t=t/10;
         }
-        if(a.equalsIgnoreCase(s))
-            System.out.println(s+" is a palindrome word");
+        if(n==rev)
+        {
+            System.out.println(n+" is a Palindrome number");
+        }
         else
-            System.out.println(s+" is not a palindrome word");
+        {
+            System.out.println(n+" is not a Palindrome number");
+        }
+    }
+
+    public static void main2()throws IOException
+    {
+        InputStreamReader read = new InputStreamReader(System.in);
+        BufferedReader in = new BufferedReader(read);
+
+        System.out.println("Enter the number");
+        int n=Integer.parseInt(in.readLine());
+        int t=n;
+        int rev=0;
+
+        while(t!=0)
+        {
+            int a=t%10;
+            rev = rev*10+a;
+            t=t/10;
+        }
+        if(n==rev)
+        {
+            if(n<-10 || n>10)
+            {
+                System.out.println(n+" is a Palindrome number");
+            }
+            else
+            {
+                System.out.println(n+" is not a Palindrome number");
+            }
+        }
+        else
+        {
+            System.out.println(n+" is not a Palindrome number");
+        }
     }
 }
