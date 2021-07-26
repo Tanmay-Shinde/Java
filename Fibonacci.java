@@ -1,4 +1,4 @@
-package Loops.Loops_For;
+package Loops.Loops_DoWhile;
 public class Fibonacci
 {
     public static void main()
@@ -8,12 +8,15 @@ public class Fibonacci
         int l;
         System.out.print(i+",");
         System.out.print(j+",");
-        for(int k=3;k<=10;k++)
+        int k=3;
+        do
         {
             l=i+j;
             System.out.print(l+",");
             i=j;
             j=l;
-        }
+            
+            k++;
+        }while(k<=10);
     }
 }
