@@ -1,0 +1,68 @@
+import java.util.*;
+public class Change
+{
+    String str;
+    String newstr;
+    int len;
+    
+    public Change()
+    {
+        str="";
+        newstr="";
+        len=0;
+    }
+    
+    public void inputword()
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Input a word");
+        str = sc.next();
+        len = str.length();
+    }
+    
+    public char caseconvert(char ch)
+    {
+        if(ch>=65 && ch<=90)
+            ch = (char)(ch+32);
+        else if(ch>=97 && ch<=122)
+            ch = (char)(ch-32);
+        else
+            ch = ch;
+            
+        return ch;
+    }
+    
+    public void rechange(int n)
+    {
+        char ch;
+        char nch;
+        if(n==0)
+        {
+            ch = str.charAt(0);
+            nch = caseconvert(ch);
+            newstr = nch + newstr;
+        }
+        else
+        {
+            ch = str.charAt(n);
+            nch = caseconvert(ch);
+            newstr = nch + newstr;
+            rechange(n-1);
+        }
+    }
+    
+    public void display()
+    {
+        System.out.println("Original Word: "+str);
+        System.out.println("New Word: "+newstr);
+    }
+    
+    static void main()
+    {
+        Change ob = new Change();
+        ob.inputword();
+        ob.rechange(ob.len-1);
+        ob.display();
+    }
+}
